@@ -326,7 +326,7 @@
       gap: 0.5rem;
     }
     .showcase-bullets li::before {
-      content: "✓";
+      content: "\2713";
       color: var(--gold);
       font-weight: bold;
     }
@@ -691,11 +691,10 @@
       max-height: 90vh;
       overflow-y: auto;
     }
-    .project-lightbox-content img {
+        .project-lightbox-content img {
       width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
-      background: #000;
+      height: auto;
+      display: block;
     }
     .project-lightbox-details {
       padding: 2rem;
@@ -767,7 +766,7 @@
       line-height: 1.4;
     }
     .highlights-col ul li::before {
-      content: "✦";
+      content: "\2726";
       color: var(--gold-light);
       font-size: 0.75rem;
       margin-top: 0.15rem;
@@ -855,30 +854,32 @@
         <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
         ARK <span>Infra</span>
       </a>
-            <nav class="nav-desktop" aria-label="Main navigation">
-        <a href='about.html'>About</a>
-        <a href='projects.html'>Projects</a>
-        <a href='why.html'>Why Us</a>
-        <a href='achievements.html'>Achievements</a>
-        <a href='testimonials.html'>Testimonials</a>
-        <a href='gallery.html'>Gallery</a>
-        <a class='nav-cta' href='contact.html'>Contact</a>
-      </nav>
+                    <nav class="nav-desktop" aria-label="Main navigation">
+          <a href='about.html'>About</a>
+          <a href='projects.html'>Projects</a>
+          <a href='insights.html'>Insights</a>
+          <a href='why.html'>Why Us</a>
+          <a href='achievements.html'>Achievements</a>
+          <a href='testimonials.html'>Testimonials</a>
+          <a href='gallery.html'>Gallery</a>
+          <a class='nav-cta' href='contact.html'>Contact</a>
+        </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-    <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
-    <a href='about.html'>About</a>
-    <a href='projects.html'>Projects</a>
-    <a href='why.html'>Why Us</a>
-    <a href='achievements.html'>Achievements</a>
-    <a href='testimonials.html'>Testimonials</a>
-    <a href='gallery.html'>Gallery</a>
-    <a href='contact.html'>Contact</a>
-  </nav>
+        <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+      <a href='about.html'>About</a>
+      <a href='projects.html'>Projects</a>
+      <a href='insights.html'>Insights</a>
+      <a href='why.html'>Why Us</a>
+      <a href='achievements.html'>Achievements</a>
+      <a href='testimonials.html'>Testimonials</a>
+      <a href='gallery.html'>Gallery</a>
+      <a href='contact.html'>Contact</a>
+    </nav>
 
   <main class="support-section">
     <div class="support-header-text" style="margin-top: 2rem;">
@@ -915,6 +916,8 @@
           <li><a href='projects.html'>Projects</a></li>
           <li><a href='gallery.html'>Gallery</a></li>
           <li><a href='contact.html'>Contact</a></li>
+          <li><a href='emi-calculator.html'>EMI Calculator</a></li>
+          <li><a href='insights.html'>Insights</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -999,7 +1002,7 @@
 
   <script>
     (function () {
-      const projectsData = [
+                  const projectsData = [
         {
           title: "Alakananda - Highway City",
           desc: "VMRDA & AP RERA Approved Layout at Tallapalem",
@@ -1060,52 +1063,295 @@
           ]
         },
         {
-          title: "Luxury Residence",
-          desc: "Premium apartments · Prime location",
-          image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
-          status: "Completed",
-          category: "luxury completed",
-          meta: ["Residential", "Luxury"]
-        },
-        {
-          title: "Skyline Towers",
-          desc: "High-rise living · Urban core",
-          image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-          status: "Ongoing",
-          category: "luxury ongoing",
-          meta: ["Residential", "Ongoing"]
-        },
-        {
-          title: "Green Meadows Layout",
-          desc: "Plotted development · Gated community",
-          image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-          status: "Completed",
-          category: "residential completed",
-          meta: ["Plots", "Residential"]
-        },
-        {
-          title: "Business Park",
-          desc: "Grade-A commercial · Business district",
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-          status: "Ongoing",
-          category: "commercial ongoing",
-          meta: ["Commercial", "Ongoing"]
-        },
-        {
-          title: "Waterfront Living",
-          desc: "Luxury homes · Scenic location",
-          image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
-          status: "Completed",
-          category: "luxury completed",
-          meta: ["Residential", "Premium"]
-        },
-        {
-          title: "Harmony Villas",
-          desc: "Independent villas · Gated community",
-          image: "https://images.unsplash.com/photo-1600566753190-17f0baa0a6a3?w=600&q=80",
+          title: "Sandal Valley",
+          desc: "Premium Plotted Layout near Ballanki Junction at Anandapuram",
+          image: "images/sandal-valley.jpg",
           status: "Ongoing",
           category: "residential ongoing",
-          meta: ["Villas", "Ongoing"]
+          meta: ["Plots", "Anandapuram"],
+          layoutFeatures: [
+            "VMRDA Approved Layout",
+            "Gated Community with Grand Entry Arch",
+            "40' and 30' Feet Blacktop Roads",
+            "Electricity with Street Lighting",
+            "Underground Drainage System",
+            "Avenue Plantation & Green Parks",
+            "100% Vaasthu & Clear Title",
+            "Spot Registration & Bank Loan Facility"
+          ],
+          projectHighlights: [
+            "Located in the High-Appreciation Zone of Anandapuram",
+            "Fully gated community with 24/7 Security",
+            "Beautifully landscaped children's parks"
+          ],
+          locationHighlights: [
+            "Near Anandapuram Junction (NH-16)",
+            "Close to prestigious schools and colleges",
+            "25-minute drive to Vizag city center"
+          ]
+        },
+        {
+          title: "Belmonk Layout (Phase 1)",
+          desc: "Premium plotted development starting at \u20B93,999/- per SFT at Tagarapuvalasa",
+          image: "images/belmonk-layout.jpg",
+          status: "Ongoing",
+          category: "residential ongoing",
+          meta: ["Plots", "Tagarapuvalasa"],
+          layoutFeatures: [
+            "VMRDA & AP RERA Approved Layout",
+            "Gated community with decorative boundary wall",
+            "40' and 33' Feet Blacktop Roads",
+            "Street lighting and electricity lines",
+            "Underground Drainage & Water Pipelines",
+            "100% Vaasthu compliant layout design"
+          ],
+          projectHighlights: [
+            "Venture launch price of \u20B93,999/- per SFT",
+            "High appreciation potential near educational hub",
+            "Lush green avenue plantations and open park areas"
+          ],
+          locationHighlights: [
+            "Located in the prime zone of Tagarapuvalasa",
+            "Minutes away from NH-16 highway",
+            "Close to engineering and medical colleges"
+          ]
+        },
+        {
+          title: "Vaibhav Classic",
+          desc: "Completed premium plotted venture at Gandigudam, Simhachalam",
+          image: "images/vaibhav-classic.jpg",
+          status: "Completed",
+          category: "luxury completed",
+          meta: ["Plots", "Simhachalam"],
+          layoutFeatures: [
+            "VMRDA Approved Gated Community",
+            "Fully compound-walled layout",
+            "40' Feet Blacktop Roads",
+            "Overhead Water Tank & Water Pipelines",
+            "Electricity with street lighting",
+            "Children's play park with seating",
+            "Clear title and immediate registration"
+          ],
+          projectHighlights: [
+            "Completed venture ready for instant housing construction",
+            "100% Vasthu compliant layout",
+            "Scenic pollution-free environment at Simhachalam foothills"
+          ],
+          locationHighlights: [
+            "Located at Gandigudam, Simhachalam",
+            "Close to the historic Simhachalam Temple",
+            "15 minutes drive to NAD Junction",
+            "Easy connectivity to Gopalapatnam and Pendurthi"
+          ]
+        },
+        {
+          title: "Belmonk Layout Premium",
+          desc: "Elite gated plotted community starting at \u20B923,000/- per Sq. Yd at Tagarapuvalasa",
+          image: "images/belmonk-layout-premium.jpg",
+          status: "Ongoing",
+          category: "luxury ongoing",
+          meta: ["Plots", "Tagarapuvalasa"],
+          layoutFeatures: [
+            "VMRDA Approved premium gated community",
+            "Grand Entrance Arch with security post",
+            "Wide 40' Feet Blacktop Roads",
+            "Underground drainage and underground cabling",
+            "Fully secure compound wall for entire layout",
+            "Overhead water storage tank"
+          ],
+          projectHighlights: [
+            "Premium pricing at \u20B923,000/- per Sq. Yd",
+            "Designed for luxury villa constructions",
+            "Extensive landscape parks and children's play areas"
+          ],
+          locationHighlights: [
+            "Located along the fast-developing Tagarapuvalasa corridor",
+            "Very close to the 6-lane National Highway (NH-16)",
+            "Surrounded by residential villa developments"
+          ]
+        },
+        {
+          title: "Sri Sampath Ganesh Nagar",
+          desc: "Successfully completed plotted layout at Lankelapalem",
+          image: "images/sampath-ganesh-nagar.jpg",
+          status: "Completed",
+          category: "residential completed",
+          meta: ["Plots", "Lankelapalem"],
+          layoutFeatures: [
+            "VMRDA approved gated community",
+            "Completed layout with well-laid 40' blacktop roads",
+            "Electricity network with street lights",
+            "Underground drainage and layout protection wall",
+            "Beautiful avenue plantations",
+            "Spot registration with clean titles"
+          ],
+          projectHighlights: [
+            "Fully completed venture ready for house construction",
+            "Surrounded by fully inhabited residential areas",
+            "Bank loan options available with top banks"
+          ],
+          locationHighlights: [
+            "Located at Lankelapalem, Visakhapatnam",
+            "Near Lankelapalem Junction and NH-16",
+            "Minutes away from Lankelapalem industrial SEZ hubs",
+            "Close to schools, hospitals, and shopping centers"
+          ]
+        },
+        {
+          title: "Kodduru Venture - Anakapalli",
+          desc: "Plotted gated community with swimming pool starting at \u20B916,000/- per Sq. Yd",
+          image: "images/annakapalli-kodduru.jpg",
+          status: "Ongoing",
+          category: "luxury ongoing",
+          meta: ["Plots", "Anakapalli"],
+          layoutFeatures: [
+            "VMRDA Approved gated layout",
+            "Grand entrance arch and security cabin",
+            "Fully operational swimming pool for residents",
+            "40' and 33' Feet Blacktop Roads",
+            "Underground drainage and sewage treatment lines",
+            "Overhead water tank and piped water supply to each plot"
+          ],
+          projectHighlights: [
+            "Premium lifestyle amenities including swimming pool and clubhouse area",
+            "Gated community with 24/7 security surveillance",
+            "Attractive landscaping and children's park"
+          ],
+          locationHighlights: [
+            "Located at Kodduru near Anakapalli",
+            "Excellent connectivity to Anakapalli bypass road",
+            "Quick access to Visakhapatnam-Chennai highway NH-16",
+            "Close to upcoming industrial hubs"
+          ]
+        },
+        {
+          title: "RTC Depot Backside Venture",
+          desc: "Premium commercial & residential plots starting at \u20B923,000/- per Sq. Yd at Kothavalasa",
+          image: "images/kothavalasa.jpg",
+          status: "Ongoing",
+          category: "commercial ongoing",
+          meta: ["Plots", "Kothavalasa"],
+          layoutFeatures: [
+            "VMRDA approved layout",
+            "Grand entry arch and secure fencing",
+            "40' and 33' Feet wide Blacktop Roads",
+            "Electricity and modern street lighting network",
+            "Underground drainage and sewage lanes",
+            "Water connection facility for every plot"
+          ],
+          projectHighlights: [
+            "Located directly behind Kothavalasa RTC Depot",
+            "Premium pricing at \u20B923,000/- per Sq. Yd",
+            "Ideal for both commercial shops and premium residential homes"
+          ],
+          locationHighlights: [
+            "Located right behind the RTC Bus Depot in Kothavalasa",
+            "Excellent connectivity to Araku-Vizag highway road",
+            "Walkable distance to local transit, markets, and railway station"
+          ]
+        },
+        {
+          title: "Kokkirapalli Venture (Phase 1)",
+          desc: "Premium residential layout starting at \u20B916,000/- per Sq. Yd at Yelamanchili",
+          image: "images/kokkirapalli.jpg",
+          status: "Ongoing",
+          category: "residential ongoing",
+          meta: ["Plots", "Yelamanchili"],
+          layoutFeatures: [
+            "VMRDA Approved Layout",
+            "Decorative Entrance Arch with security outpost",
+            "40' Feet Blacktop Roads throughout the layout",
+            "Underground drainage and waste management lines",
+            "Electricity lines with streetlights installed",
+            "Plantation on either side of roads"
+          ],
+          projectHighlights: [
+            "Venture price of \u20B916,000/- per Sq. Yd",
+            "Clear title and spot registration",
+            "100% Vaasthu layout with beautiful open spacing"
+          ],
+          locationHighlights: [
+            "Located in Kokkirapalli near Yelamanchili",
+            "Close to Yelamanchili railway station and town center",
+            "15 minutes drive to Atchutapuram SEZ industrial corridor"
+          ]
+        },
+        {
+          title: "Golden Acres - Bhogapuram",
+          desc: "Elite plotted venture at Kopparla starting at \u20B917,000/- per Sq. Yd near Airport",
+          image: "images/golden-acres.jpg",
+          status: "Ongoing",
+          category: "luxury ongoing",
+          meta: ["Plots", "Bhogapuram"],
+          layoutFeatures: [
+            "VMRDA & AP RERA Approved premium gated community",
+            "Attractive Entrance Gate with 24/7 security staff",
+            "Wide 40' Feet Blacktop Roads",
+            "Modern streetlights and electricity network",
+            "Drainage and water lines pre-laid",
+            "Avenue plantation and landscaped park zone"
+          ],
+          projectHighlights: [
+            "Located at Kopparla in the fast-growing Bhogapuram region",
+            "Launch price of \u20B917,000/- per Sq. Yd",
+            "Designed for high capital gains near the international airport"
+          ],
+          locationHighlights: [
+            "Just 10 minutes drive from the upcoming Bhogapuram International Airport",
+            "Direct connectivity to National Highway NH-16",
+            "Close to premium beach resorts and educational institutions"
+          ]
+        },
+        {
+          title: "Sri Muktha Gardens",
+          desc: "Completed budget-friendly plots starting at \u20B97,500/- per Sq. Yd at Desapathrunipalem",
+          image: "images/sri-muktha-gardens.jpg",
+          status: "Completed",
+          category: "residential completed",
+          meta: ["Plots", "Desapathrunipalem"],
+          layoutFeatures: [
+            "VMRDA Approved plotted development",
+            "Completed blacktop roads (40' and 33' feet)",
+            "Well-developed drainage system",
+            "Electricity lines and avenue plants",
+            "Entire layout compound fencing",
+            "Spot registration with immediate construction option"
+          ],
+          projectHighlights: [
+            "Highly budget-friendly entry price of \u20B97,500/- per Sq. Yd",
+            "Ready for immediate registration and house construction",
+            "Vaastu compliant plots with clear titles"
+          ],
+          locationHighlights: [
+            "Located at Desapathrunipalem near steel plant zone",
+            "Close to steel plant sector gate and NH-16",
+            "Surrounded by schools, colleges, and transportation options"
+          ]
+        },
+        {
+          title: "Kokkirapalli Venture (Phase 2)",
+          desc: "Premium gated residential plots starting at \u20B916,000/- per Sq. Yd at Yelamanchili",
+          image: "images/kokkirapalli-alternate.jpg",
+          status: "Ongoing",
+          category: "residential ongoing",
+          meta: ["Plots", "Yelamanchili"],
+          layoutFeatures: [
+            "VMRDA Approved Layout - Phase 2 extension",
+            "Gated community with grand entry arch and compound wall",
+            "Wide 40' and 33' blacktop roads",
+            "Advanced drainage facilities and electricity grids",
+            "Landscaped children parks and seating areas"
+          ],
+          projectHighlights: [
+            "Extension phase with competitive pricing of \u20B916,000/- per Sq. Yd",
+            "High investment yield potential",
+            "100% Vaasthu compliant layouts with immediate registration"
+          ],
+          locationHighlights: [
+            "Located at Yelamanchili, Kokkirapalli corridor",
+            "Easy access to Anakapalli-Yelamanchili National Highway",
+            "Close to major educational academies and business zones"
+          ]
         }
       ];
 

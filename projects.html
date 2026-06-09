@@ -326,7 +326,7 @@
       gap: 0.5rem;
     }
     .showcase-bullets li::before {
-      content: "✓";
+      content: "\2713";
       color: var(--gold);
       font-weight: bold;
     }
@@ -691,11 +691,10 @@
       max-height: 90vh;
       overflow-y: auto;
     }
-    .project-lightbox-content img {
+        .project-lightbox-content img {
       width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
-      background: #000;
+      height: auto;
+      display: block;
     }
     .project-lightbox-details {
       padding: 2rem;
@@ -767,7 +766,7 @@
       line-height: 1.4;
     }
     .highlights-col ul li::before {
-      content: "✦";
+      content: "\2726";
       color: var(--gold-light);
       font-size: 0.75rem;
       margin-top: 0.15rem;
@@ -856,30 +855,32 @@
         <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
         ARK <span>Infra</span>
       </a>
-                  <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="why.html">Why Us</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </nav>
+                          <nav class="nav-desktop" aria-label="Main navigation">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="why.html">Why Us</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="nav-cta">Contact</a>
+        </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-      <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="why.html">Why Us</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+          <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="insights.html">Insights</a>
+      <a href="why.html">Why Us</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
   
   <main class="support-section">
@@ -889,6 +890,15 @@
       <h2 class="section-title reveal">Iconic Developments</h2>
       <p class="section-desc reveal">Sample layouts below — replace with your real project names, photos, and locations when available.</p>
 
+      <!-- EMI Calculator CTA Banner -->
+      <div class="emi-cta-banner reveal" style="background: rgba(201, 169, 98, 0.08); border: 1px solid rgba(201, 169, 98, 0.2); border-radius: 6px; padding: 1.5rem 2rem; margin: 1.5rem 0 2.5rem; max-width: 50rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; text-align: left;">
+        <div style="flex: 1; min-width: 280px;">
+          <h4 style="font-family: var(--font-display); font-size: 1.35rem; color: var(--white); margin-bottom: 0.25rem;">Estimate Your Monthly Payments</h4>
+          <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.4; margin: 0;">Use our premium interactive EMI Calculator to plan your budget for these layout plots.</p>
+        </div>
+        <a href="emi-calculator.html" class="btn-cta" style="background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy-deep); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.75rem 1.5rem; border-radius: 2px; text-align: center; white-space: nowrap; transition: opacity var(--transition);" onmouseover="this.style.opacity=0.9" onmouseout="this.style.opacity=1">Calculate EMI âž”</a>
+      </div>
+
       <div class="project-tabs reveal" role="tablist">
         <button class="project-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
         <button class="project-tab" data-filter="ongoing" role="tab">Ongoing</button>
@@ -897,6 +907,339 @@
       <div class="projects-grid" id="projectsGrid"></div>
     </div>
   </section>
+<section class="roadmap-section" id="roadmap">
+  <style>
+    .roadmap-section {
+      background: var(--navy);
+      padding: 6rem 1.5rem;
+      border-top: 1px solid rgba(201, 169, 98, 0.15);
+      position: relative;
+    }
+    .roadmap-container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline {
+      position: relative;
+      margin-top: 4rem;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(201, 169, 98, 0.15);
+      transform: translateX(-50%);
+    }
+    .timeline-progress {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
+      transform: translateX(-50%);
+      height: 0%;
+      transition: height 0.1s linear;
+      box-shadow: 0 0 10px rgba(201, 169, 98, 0.3);
+    }
+    .timeline-item {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 50%;
+      position: relative;
+      margin-bottom: 5rem;
+      width: 100%;
+    }
+    .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-left: 50%;
+      padding-right: 0;
+    }
+    .timeline-node {
+      position: absolute;
+      left: 50%;
+      top: 1.5rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy-deep);
+      border: 2px solid rgba(201, 169, 98, 0.3);
+      transform: translate(-50%, 0);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.4s, box-shadow 0.4s, background-color 0.4s;
+    }
+    .timeline-item.active .timeline-node {
+      border-color: var(--gold);
+      background: var(--gold);
+      box-shadow: 0 0 15px rgba(201, 169, 98, 0.5);
+    }
+    .timeline-node::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(201, 169, 98, 0.3);
+      transition: background-color 0.4s, transform 0.4s;
+    }
+    .timeline-item.active .timeline-node::after {
+      background: var(--navy-deep);
+      transform: scale(1.2);
+    }
+    .timeline-content {
+      width: 85%;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid rgba(201, 169, 98, 0.12);
+      border-radius: 4px;
+      padding: 2.25rem;
+      position: relative;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s, opacity 0.8s;
+      opacity: 0;
+    }
+    .timeline-item:nth-child(odd) .timeline-content {
+      transform: translateX(-50px);
+      margin-right: 3rem;
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) .timeline-content {
+      transform: translateX(50px);
+      margin-left: 3rem;
+      text-align: left;
+    }
+    .timeline-item.active .timeline-content {
+      opacity: 1;
+      transform: translateX(0);
+      border-color: rgba(201, 169, 98, 0.35);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+    .timeline-content:hover {
+      border-color: rgba(201, 169, 98, 0.5);
+      box-shadow: 0 15px 40px rgba(201, 169, 98, 0.15);
+    }
+    .timeline-phase {
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.75rem;
+    }
+    .timeline-item:nth-child(odd) .timeline-title {
+      justify-content: flex-end;
+    }
+    .timeline-status-badge {
+      display: inline-block;
+      font-size: 0.625rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      font-weight: 600;
+      font-family: var(--font-sans);
+    }
+    .timeline-status-badge.completed {
+      background: rgba(37, 211, 102, 0.1);
+      color: #25D366;
+      border: 1px solid rgba(37, 211, 102, 0.2);
+    }
+    .timeline-status-badge.ongoing {
+      background: rgba(201, 169, 98, 0.1);
+      color: var(--gold);
+      border: 1px solid rgba(201, 169, 98, 0.25);
+    }
+    .timeline-status-badge.upcoming {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .timeline-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 16px;
+      }
+      .timeline-progress {
+        left: 16px;
+      }
+      .timeline-item {
+        justify-content: flex-start;
+        padding-left: 45px;
+        padding-right: 0;
+        margin-bottom: 3.5rem;
+      }
+      .timeline-item:nth-child(even) {
+        padding-left: 45px;
+      }
+      .timeline-node {
+        left: 16px;
+        transform: translate(-50%, 0);
+        top: 1rem;
+      }
+      .timeline-content {
+        width: 100%;
+        padding: 1.75rem;
+      }
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        transform: translateX(30px);
+        margin-left: 1rem;
+        margin-right: 0;
+        text-align: left;
+      }
+      .timeline-item:nth-child(odd) .timeline-title {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+
+  <div class="roadmap-container">
+    <p class="section-label reveal">Execution & Trust</p>
+    <h2 class="section-title reveal">Venture Development Roadmap</h2>
+    <p class="section-desc reveal" style="margin-bottom: 3rem;">
+      From securing 100% legally clear titles to final customer registrations, see how we systematically build premium gated layouts.
+    </p>
+
+    <div class="timeline" id="roadmapTimeline">
+      <!-- Active Progress Bar -->
+      <div class="timeline-progress" id="timelineProgress"></div>
+
+      <!-- Phase 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="timeline-phase">Phase 01</span>
+          <h3 class="timeline-title">
+            Land Procurement & Title Verification
+            <span class="timeline-status-badge completed">Completed</span>
+          </h3>
+          <p class="timeline-desc">
+            We purchase premium lands in strategic, high-growth corridors around Visakhapatnam. Our legal experts conduct strict vetting to ensure 100% clear titles, Vaasthu layout alignment, and hassle-free spot registration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="timeline-phase">Phase 02</span>
+          <h3 class="timeline-title">
+            Government Sanctions & RERA Approvals
+            <span class="timeline-status-badge completed">Completed</span>
+          </h3>
+          <p class="timeline-desc">
+            ARK Infra layouts strictly adhere to official rules. We secure VMRDA proposed layouts and AP RERA approvals (like our Alakananda layout at Tallapalem) to guarantee legally verified land development.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="timeline-phase">Phase 03</span>
+          <h3 class="timeline-title">
+            Core Infrastructure Development
+            <span class="timeline-status-badge ongoing">In Progress</span>
+          </h3>
+          <p class="timeline-desc">
+            Heavy machinery execution on-site. We lay premium 40-foot wide blacktop roads, construct robust underground concrete drainage facilities, and set up electricity poles with street lighting networks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="timeline-phase">Phase 04</span>
+          <h3 class="timeline-title">
+            Gated Amenities & Greenery
+            <span class="timeline-status-badge ongoing">In Progress</span>
+          </h3>
+          <p class="timeline-desc">
+            Building premium enhancements including a grand entrance archway, secured layout compound walls, organic avenue plantations, and landscaping children's play parks with recreational zones.
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 5 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="timeline-phase">Phase 05</span>
+          <h3 class="timeline-title">
+            Registrations & Customer Handover
+            <span class="timeline-status-badge upcoming">Upcoming</span>
+          </h3>
+          <p class="timeline-desc">
+            Smooth customer handovers. We assist with spot registrations and facilitate bank loan approvals with major financial partners, enabling immediate construction of your dream home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.timeline-item');
+      const progressLine = document.getElementById('timelineProgress');
+      const timeline = document.getElementById('roadmapTimeline');
+
+      // Scroll observer to activate milestones
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.25,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      items.forEach(item => observer.observe(item));
+
+      // Dynamic timeline height adjustment based on scroll
+      window.addEventListener('scroll', () => {
+        if (!timeline || !progressLine) return;
+        const rect = timeline.getBoundingClientRect();
+        const viewHeight = window.innerHeight;
+        
+        // Calculate the percentage of the timeline that has been scrolled through
+        const scrolledDistance = viewHeight * 0.7 - rect.top; 
+        const totalHeight = rect.height;
+        let percentage = (scrolledDistance / totalHeight) * 100;
+        
+        if (percentage < 0) percentage = 0;
+        if (percentage > 100) percentage = 100;
+        
+        progressLine.style.height = percentage + '%';
+      });
+    })();
+  </script>
+</section>
   </main>
   <footer class="site-footer">
     <div class="footer-grid">
@@ -920,6 +1263,8 @@
           <li><a href="projects.html">Projects</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          <li><a href="insights.html">Insights</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1052,7 +1397,7 @@
       document.querySelectorAll('.modal').forEach(function (modal) {
         modal.addEventListener('click', function (e) { if (e.target === modal) closeModals(); });
       });
-      const projectsData = [
+                  const projectsData = [
         {
           title: "Alakananda - Highway City",
           desc: "VMRDA & AP RERA Approved Layout at Tallapalem",
@@ -1113,52 +1458,295 @@
           ]
         },
         {
-          title: "Luxury Residence",
-          desc: "Premium apartments - Prime location",
-          image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
-          status: "Completed",
-          category: "luxury completed",
-          meta: ["Residential", "Luxury"]
-        },
-        {
-          title: "Skyline Towers",
-          desc: "High-rise living - Urban core",
-          image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-          status: "Ongoing",
-          category: "luxury ongoing",
-          meta: ["Residential", "Ongoing"]
-        },
-        {
-          title: "Green Meadows Layout",
-          desc: "Plotted development - Gated community",
-          image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-          status: "Completed",
-          category: "residential completed",
-          meta: ["Plots", "Residential"]
-        },
-        {
-          title: "Business Park",
-          desc: "Grade-A commercial - Business district",
-          image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80",
-          status: "Ongoing",
-          category: "commercial ongoing",
-          meta: ["Commercial", "Ongoing"]
-        },
-        {
-          title: "Waterfront Living",
-          desc: "Luxury homes - Scenic location",
-          image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
-          status: "Completed",
-          category: "luxury completed",
-          meta: ["Residential", "Premium"]
-        },
-        {
-          title: "Harmony Villas",
-          desc: "Independent villas - Gated community",
-          image: "https://images.unsplash.com/photo-1600566753190-17f0baa0a6a3?w=600&q=80",
+          title: "Sandal Valley",
+          desc: "Premium Plotted Layout near Ballanki Junction at Anandapuram",
+          image: "images/sandal-valley.jpg",
           status: "Ongoing",
           category: "residential ongoing",
-          meta: ["Villas", "Ongoing"]
+          meta: ["Plots", "Anandapuram"],
+          layoutFeatures: [
+            "VMRDA Approved Layout",
+            "Gated Community with Grand Entry Arch",
+            "40' and 30' Feet Blacktop Roads",
+            "Electricity with Street Lighting",
+            "Underground Drainage System",
+            "Avenue Plantation & Green Parks",
+            "100% Vaasthu & Clear Title",
+            "Spot Registration & Bank Loan Facility"
+          ],
+          projectHighlights: [
+            "Located in the High-Appreciation Zone of Anandapuram",
+            "Fully gated community with 24/7 Security",
+            "Beautifully landscaped children's parks"
+          ],
+          locationHighlights: [
+            "Near Anandapuram Junction (NH-16)",
+            "Close to prestigious schools and colleges",
+            "25-minute drive to Vizag city center"
+          ]
+        },
+        {
+          title: "Belmonk Layout (Phase 1)",
+          desc: "Premium plotted development starting at \u20B93,999/- per SFT at Tagarapuvalasa",
+          image: "images/belmonk-layout.jpg",
+          status: "Ongoing",
+          category: "residential ongoing",
+          meta: ["Plots", "Tagarapuvalasa"],
+          layoutFeatures: [
+            "VMRDA & AP RERA Approved Layout",
+            "Gated community with decorative boundary wall",
+            "40' and 33' Feet Blacktop Roads",
+            "Street lighting and electricity lines",
+            "Underground Drainage & Water Pipelines",
+            "100% Vaasthu compliant layout design"
+          ],
+          projectHighlights: [
+            "Venture launch price of \u20B93,999/- per SFT",
+            "High appreciation potential near educational hub",
+            "Lush green avenue plantations and open park areas"
+          ],
+          locationHighlights: [
+            "Located in the prime zone of Tagarapuvalasa",
+            "Minutes away from NH-16 highway",
+            "Close to engineering and medical colleges"
+          ]
+        },
+        {
+          title: "Vaibhav Classic",
+          desc: "Completed premium plotted venture at Gandigudam, Simhachalam",
+          image: "images/vaibhav-classic.jpg",
+          status: "Completed",
+          category: "luxury completed",
+          meta: ["Plots", "Simhachalam"],
+          layoutFeatures: [
+            "VMRDA Approved Gated Community",
+            "Fully compound-walled layout",
+            "40' Feet Blacktop Roads",
+            "Overhead Water Tank & Water Pipelines",
+            "Electricity with street lighting",
+            "Children's play park with seating",
+            "Clear title and immediate registration"
+          ],
+          projectHighlights: [
+            "Completed venture ready for instant housing construction",
+            "100% Vasthu compliant layout",
+            "Scenic pollution-free environment at Simhachalam foothills"
+          ],
+          locationHighlights: [
+            "Located at Gandigudam, Simhachalam",
+            "Close to the historic Simhachalam Temple",
+            "15 minutes drive to NAD Junction",
+            "Easy connectivity to Gopalapatnam and Pendurthi"
+          ]
+        },
+        {
+          title: "Belmonk Layout Premium",
+          desc: "Elite gated plotted community starting at \u20B923,000/- per Sq. Yd at Tagarapuvalasa",
+          image: "images/belmonk-layout-premium.jpg",
+          status: "Ongoing",
+          category: "luxury ongoing",
+          meta: ["Plots", "Tagarapuvalasa"],
+          layoutFeatures: [
+            "VMRDA Approved premium gated community",
+            "Grand Entrance Arch with security post",
+            "Wide 40' Feet Blacktop Roads",
+            "Underground drainage and underground cabling",
+            "Fully secure compound wall for entire layout",
+            "Overhead water storage tank"
+          ],
+          projectHighlights: [
+            "Premium pricing at \u20B923,000/- per Sq. Yd",
+            "Designed for luxury villa constructions",
+            "Extensive landscape parks and children's play areas"
+          ],
+          locationHighlights: [
+            "Located along the fast-developing Tagarapuvalasa corridor",
+            "Very close to the 6-lane National Highway (NH-16)",
+            "Surrounded by residential villa developments"
+          ]
+        },
+        {
+          title: "Sri Sampath Ganesh Nagar",
+          desc: "Successfully completed plotted layout at Lankelapalem",
+          image: "images/sampath-ganesh-nagar.jpg",
+          status: "Completed",
+          category: "residential completed",
+          meta: ["Plots", "Lankelapalem"],
+          layoutFeatures: [
+            "VMRDA approved gated community",
+            "Completed layout with well-laid 40' blacktop roads",
+            "Electricity network with street lights",
+            "Underground drainage and layout protection wall",
+            "Beautiful avenue plantations",
+            "Spot registration with clean titles"
+          ],
+          projectHighlights: [
+            "Fully completed venture ready for house construction",
+            "Surrounded by fully inhabited residential areas",
+            "Bank loan options available with top banks"
+          ],
+          locationHighlights: [
+            "Located at Lankelapalem, Visakhapatnam",
+            "Near Lankelapalem Junction and NH-16",
+            "Minutes away from Lankelapalem industrial SEZ hubs",
+            "Close to schools, hospitals, and shopping centers"
+          ]
+        },
+        {
+          title: "Kodduru Venture - Anakapalli",
+          desc: "Plotted gated community with swimming pool starting at \u20B916,000/- per Sq. Yd",
+          image: "images/annakapalli-kodduru.jpg",
+          status: "Ongoing",
+          category: "luxury ongoing",
+          meta: ["Plots", "Anakapalli"],
+          layoutFeatures: [
+            "VMRDA Approved gated layout",
+            "Grand entrance arch and security cabin",
+            "Fully operational swimming pool for residents",
+            "40' and 33' Feet Blacktop Roads",
+            "Underground drainage and sewage treatment lines",
+            "Overhead water tank and piped water supply to each plot"
+          ],
+          projectHighlights: [
+            "Premium lifestyle amenities including swimming pool and clubhouse area",
+            "Gated community with 24/7 security surveillance",
+            "Attractive landscaping and children's park"
+          ],
+          locationHighlights: [
+            "Located at Kodduru near Anakapalli",
+            "Excellent connectivity to Anakapalli bypass road",
+            "Quick access to Visakhapatnam-Chennai highway NH-16",
+            "Close to upcoming industrial hubs"
+          ]
+        },
+        {
+          title: "RTC Depot Backside Venture",
+          desc: "Premium commercial & residential plots starting at \u20B923,000/- per Sq. Yd at Kothavalasa",
+          image: "images/kothavalasa.jpg",
+          status: "Ongoing",
+          category: "commercial ongoing",
+          meta: ["Plots", "Kothavalasa"],
+          layoutFeatures: [
+            "VMRDA approved layout",
+            "Grand entry arch and secure fencing",
+            "40' and 33' Feet wide Blacktop Roads",
+            "Electricity and modern street lighting network",
+            "Underground drainage and sewage lanes",
+            "Water connection facility for every plot"
+          ],
+          projectHighlights: [
+            "Located directly behind Kothavalasa RTC Depot",
+            "Premium pricing at \u20B923,000/- per Sq. Yd",
+            "Ideal for both commercial shops and premium residential homes"
+          ],
+          locationHighlights: [
+            "Located right behind the RTC Bus Depot in Kothavalasa",
+            "Excellent connectivity to Araku-Vizag highway road",
+            "Walkable distance to local transit, markets, and railway station"
+          ]
+        },
+        {
+          title: "Kokkirapalli Venture (Phase 1)",
+          desc: "Premium residential layout starting at \u20B916,000/- per Sq. Yd at Yelamanchili",
+          image: "images/kokkirapalli.jpg",
+          status: "Ongoing",
+          category: "residential ongoing",
+          meta: ["Plots", "Yelamanchili"],
+          layoutFeatures: [
+            "VMRDA Approved Layout",
+            "Decorative Entrance Arch with security outpost",
+            "40' Feet Blacktop Roads throughout the layout",
+            "Underground drainage and waste management lines",
+            "Electricity lines with streetlights installed",
+            "Plantation on either side of roads"
+          ],
+          projectHighlights: [
+            "Venture price of \u20B916,000/- per Sq. Yd",
+            "Clear title and spot registration",
+            "100% Vaasthu layout with beautiful open spacing"
+          ],
+          locationHighlights: [
+            "Located in Kokkirapalli near Yelamanchili",
+            "Close to Yelamanchili railway station and town center",
+            "15 minutes drive to Atchutapuram SEZ industrial corridor"
+          ]
+        },
+        {
+          title: "Golden Acres - Bhogapuram",
+          desc: "Elite plotted venture at Kopparla starting at \u20B917,000/- per Sq. Yd near Airport",
+          image: "images/golden-acres.jpg",
+          status: "Ongoing",
+          category: "luxury ongoing",
+          meta: ["Plots", "Bhogapuram"],
+          layoutFeatures: [
+            "VMRDA & AP RERA Approved premium gated community",
+            "Attractive Entrance Gate with 24/7 security staff",
+            "Wide 40' Feet Blacktop Roads",
+            "Modern streetlights and electricity network",
+            "Drainage and water lines pre-laid",
+            "Avenue plantation and landscaped park zone"
+          ],
+          projectHighlights: [
+            "Located at Kopparla in the fast-growing Bhogapuram region",
+            "Launch price of \u20B917,000/- per Sq. Yd",
+            "Designed for high capital gains near the international airport"
+          ],
+          locationHighlights: [
+            "Just 10 minutes drive from the upcoming Bhogapuram International Airport",
+            "Direct connectivity to National Highway NH-16",
+            "Close to premium beach resorts and educational institutions"
+          ]
+        },
+        {
+          title: "Sri Muktha Gardens",
+          desc: "Completed budget-friendly plots starting at \u20B97,500/- per Sq. Yd at Desapathrunipalem",
+          image: "images/sri-muktha-gardens.jpg",
+          status: "Completed",
+          category: "residential completed",
+          meta: ["Plots", "Desapathrunipalem"],
+          layoutFeatures: [
+            "VMRDA Approved plotted development",
+            "Completed blacktop roads (40' and 33' feet)",
+            "Well-developed drainage system",
+            "Electricity lines and avenue plants",
+            "Entire layout compound fencing",
+            "Spot registration with immediate construction option"
+          ],
+          projectHighlights: [
+            "Highly budget-friendly entry price of \u20B97,500/- per Sq. Yd",
+            "Ready for immediate registration and house construction",
+            "Vaastu compliant plots with clear titles"
+          ],
+          locationHighlights: [
+            "Located at Desapathrunipalem near steel plant zone",
+            "Close to steel plant sector gate and NH-16",
+            "Surrounded by schools, colleges, and transportation options"
+          ]
+        },
+        {
+          title: "Kokkirapalli Venture (Phase 2)",
+          desc: "Premium gated residential plots starting at \u20B916,000/- per Sq. Yd at Yelamanchili",
+          image: "images/kokkirapalli-alternate.jpg",
+          status: "Ongoing",
+          category: "residential ongoing",
+          meta: ["Plots", "Yelamanchili"],
+          layoutFeatures: [
+            "VMRDA Approved Layout - Phase 2 extension",
+            "Gated community with grand entry arch and compound wall",
+            "Wide 40' and 33' blacktop roads",
+            "Advanced drainage facilities and electricity grids",
+            "Landscaped children parks and seating areas"
+          ],
+          projectHighlights: [
+            "Extension phase with competitive pricing of \u20B916,000/- per Sq. Yd",
+            "High investment yield potential",
+            "100% Vaasthu compliant layouts with immediate registration"
+          ],
+          locationHighlights: [
+            "Located at Yelamanchili, Kokkirapalli corridor",
+            "Easy access to Anakapalli-Yelamanchili National Highway",
+            "Close to major educational academies and business zones"
+          ]
         }
       ];
 

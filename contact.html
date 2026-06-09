@@ -326,7 +326,7 @@
       gap: 0.5rem;
     }
     .showcase-bullets li::before {
-      content: "✓";
+      content: "\2713";
       color: var(--gold);
       font-weight: bold;
     }
@@ -691,11 +691,10 @@
       max-height: 90vh;
       overflow-y: auto;
     }
-    .project-lightbox-content img {
+        .project-lightbox-content img {
       width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
-      background: #000;
+      height: auto;
+      display: block;
     }
     .project-lightbox-details {
       padding: 2rem;
@@ -767,7 +766,7 @@
       line-height: 1.4;
     }
     .highlights-col ul li::before {
-      content: "✦";
+      content: "\2726";
       color: var(--gold-light);
       font-size: 0.75rem;
       margin-top: 0.15rem;
@@ -856,30 +855,32 @@
         <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
         ARK <span>Infra</span>
       </a>
-                  <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="why.html">Why Us</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </nav>
+                          <nav class="nav-desktop" aria-label="Main navigation">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="why.html">Why Us</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="nav-cta">Contact</a>
+        </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-      <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="why.html">Why Us</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+          <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="insights.html">Insights</a>
+      <a href="why.html">Why Us</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
   
   <main class="support-section">
@@ -941,6 +942,8 @@
           <li><a href="projects.html">Projects</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          <li><a href="insights.html">Insights</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1053,13 +1056,45 @@
         }
       }
 
-      // Update button text to "Sending..." on submit to provide feedback before navigation
+      // Intercept contact form submission, send via fetch, and redirect to thank-you page with query params
       const contactForm = document.getElementById('contactForm');
       if (contactForm) {
-        contactForm.addEventListener('submit', function () {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          
           const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalBtnText = submitBtn.textContent;
           submitBtn.textContent = 'Sending...';
           submitBtn.disabled = true;
+
+          const formData = new FormData(contactForm);
+
+          fetch(contactForm.action, {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => {
+            if (response.ok) {
+              const name = formData.get('name') || '';
+              const email = formData.get('email') || '';
+              const phone = formData.get('phone') || '';
+              const message = formData.get('message') || '';
+              
+              // Redirect to thank-you page with form values for WhatsApp prefill
+              const thankYouUrl = `thank-you.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&message=${encodeURIComponent(message)}&whatsapp=true`;
+              window.location.href = thankYouUrl;
+            } else {
+              alert('Could not submit form. Please check details and try again.');
+              submitBtn.textContent = originalBtnText;
+              submitBtn.disabled = false;
+            }
+          })
+          .catch(error => {
+            console.error('Error submitting form:', error);
+            alert('A network error occurred. Please try again.');
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+          });
         });
       }
       document.addEventListener('keydown', function (e) {

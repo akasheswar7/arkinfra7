@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -326,7 +326,7 @@
       gap: 0.5rem;
     }
     .showcase-bullets li::before {
-      content: "✓";
+      content: "?";
       color: var(--gold);
       font-weight: bold;
     }
@@ -691,11 +691,10 @@
       max-height: 90vh;
       overflow-y: auto;
     }
-    .project-lightbox-content img {
+        .project-lightbox-content img {
       width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
-      background: #000;
+      height: auto;
+      display: block;
     }
     .project-lightbox-details {
       padding: 2rem;
@@ -767,7 +766,7 @@
       line-height: 1.4;
     }
     .highlights-col ul li::before {
-      content: "✦";
+      content: "?";
       color: var(--gold-light);
       font-size: 0.75rem;
       margin-top: 0.15rem;
@@ -856,30 +855,32 @@
         <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
         ARK <span>Infra</span>
       </a>
-                  <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="why.html">Why Us</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </nav>
+                          <nav class="nav-desktop" aria-label="Main navigation">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="why.html">Why Us</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="nav-cta">Contact</a>
+        </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-      <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="why.html">Why Us</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+          <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="insights.html">Insights</a>
+      <a href="why.html">Why Us</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
   
   <main class="support-section">
@@ -893,7 +894,7 @@
         <div class="testimonial-track" id="testimonialTrack">
           <div class="testimonial-slide">
             <div class="testimonial-card">
-              <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+              <div class="testimonial-stars" aria-hidden="true">?????</div>
               <blockquote>Quality construction, clear communication, and a smooth buying experience — exactly what we hoped for from a premium developer.</blockquote>
               <div class="testimonial-author">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=112&q=80" alt="" width="56" height="56">
@@ -906,7 +907,7 @@
           </div>
           <div class="testimonial-slide">
             <div class="testimonial-card">
-              <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+              <div class="testimonial-stars" aria-hidden="true">?????</div>
               <blockquote>Professional team, transparent paperwork, and confidence in the investment — highly recommended for commercial and residential buyers.</blockquote>
               <div class="testimonial-author">
                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=112&q=80" alt="" width="56" height="56">
@@ -919,7 +920,7 @@
           </div>
           <div class="testimonial-slide">
             <div class="testimonial-card">
-              <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+              <div class="testimonial-stars" aria-hidden="true">?????</div>
               <blockquote>From site visit to handover, the ARK Infra team was responsive, respectful, and committed to delivering on their promises.</blockquote>
               <div class="testimonial-author">
                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=112&q=80" alt="" width="56" height="56">
@@ -932,8 +933,8 @@
           </div>
         </div>
         <div class="slider-controls">
-          <button class="slider-btn" id="prevSlide" aria-label="Previous testimonial">←</button>
-          <button class="slider-btn" id="nextSlide" aria-label="Next testimonial">→</button>
+          <button class="slider-btn" id="prevSlide" aria-label="Previous testimonial">?</button>
+          <button class="slider-btn" id="nextSlide" aria-label="Next testimonial">?</button>
         </div>
         <div class="slider-dots" id="sliderDots" role="tablist"></div>
       </div>
@@ -962,6 +963,8 @@
           <li><a href="projects.html">Projects</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          <li><a href="insights.html">Insights</a></li>
         </ul>
       </div>
       <div class="footer-col">

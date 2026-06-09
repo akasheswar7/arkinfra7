@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -574,11 +574,10 @@
       max-height: 90vh;
       overflow-y: auto;
     }
-    .project-lightbox-content img {
+        .project-lightbox-content img {
       width: 100%;
-      max-height: 60vh;
-      object-fit: contain;
-      background: #000;
+      height: auto;
+      display: block;
     }
     .project-lightbox-details {
       padding: 2rem;
@@ -650,7 +649,7 @@
       line-height: 1.4;
     }
     .highlights-col ul li::before {
-      content: "✦";
+      content: "?";
       color: var(--gold-light);
       font-size: 0.75rem;
       margin-top: 0.15rem;
@@ -917,16 +916,16 @@
 </head>
 <body>
   <!--
-    ═══════════════════════════════════════════════════════════
+    -----------------------------------------------------------
     UPDATE LATER — search this file for:  YOUR_
-    ═══════════════════════════════════════════════════════════
-    YOUR_CEO_PHOTO      → Hero CEO photo URL (optional)
-    YOUR_EMAIL          → Contact email
-    YOUR_ADDRESS        → Office address (lines allowed)
-    YOUR_MAP_EMBED      → Google Maps iframe src URL
-    YOUR_FOUNDED_YEAR   → e.g. 2010 (hero badge & about)
-    YOUR_PROJECT_*      → Project cards in Featured Projects
-    ═══════════════════════════════════════════════════════════
+    -----------------------------------------------------------
+    YOUR_CEO_PHOTO      ? Hero CEO photo URL (optional)
+    YOUR_EMAIL          ? Contact email
+    YOUR_ADDRESS        ? Office address (lines allowed)
+    YOUR_MAP_EMBED      ? Google Maps iframe src URL
+    YOUR_FOUNDED_YEAR   ? e.g. 2010 (hero badge & about)
+    YOUR_PROJECT_*      ? Project cards in Featured Projects
+    -----------------------------------------------------------
   -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -936,30 +935,32 @@
         <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
         ARK <span>Infra</span>
       </a>
-            <nav class="nav-desktop" aria-label="Main navigation">
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="why.html">Why Us</a>
-        <a href="achievements.html">Achievements</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html" class="nav-cta">Contact</a>
-      </nav>
+                    <nav class="nav-desktop" aria-label="Main navigation">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="insights.html">Insights</a>
+          <a href="why.html">Why Us</a>
+          <a href="achievements.html">Achievements</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="nav-cta">Contact</a>
+        </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-    <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="why.html">Why Us</a>
-    <a href="achievements.html">Achievements</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+        <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="insights.html">Insights</a>
+      <a href="why.html">Why Us</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
   <main id="main">
     <!-- Hero -->
@@ -1025,7 +1026,7 @@
         <div class="contact-grid" style="grid-template-columns: 1fr; margin-top: 3rem;">
           <div class="contact-info reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; width: 100%;">
             <div class="contact-item">
-              <div class="contact-icon" aria-hidden="true">☎</div>
+              <div class="contact-icon" aria-hidden="true">?</div>
               <div>
                 <h4>CEO — Phone &amp; WhatsApp</h4>
                 <p><a href="tel:+918125547801">+91 81255 47801</a></p>
@@ -1033,7 +1034,7 @@
               </div>
             </div>
             <div class="contact-item">
-              <div class="contact-icon" aria-hidden="true">✉</div>
+              <div class="contact-icon" aria-hidden="true">?</div>
               <div>
                 <h4>Email</h4>
                 <p><a href="mailto:arkinfraproperties@gmail.com">arkinfraproperties@gmail.com</a></p>
@@ -1117,6 +1118,8 @@
           <li><a href="projects.html">Projects</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="emi-calculator.html">EMI Calculator</a></li>
+          <li><a href="insights.html">Insights</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1253,7 +1256,7 @@
           role: "CEO",
           image: "images/ceo-arun.png",
           quote: `"Every project we deliver is a promise fulfilled—built on integrity, driven by excellence, and designed for the future."`,
-          bio: "Konathala Hanumantharao (Arun) is the CEO and founder of ARK Infra. Under his dynamic leadership, the company has completed numerous premium developments and established a reputation for absolute transparency, engineering excellence, and customer trust. With nearly twenty years of experience in real estate, he oversees the company's strategic vision and continues to build landmarks across prime growth corridors.",
+          bio: "Konathala Hanumantharao (Arun) is the CEO of ARK Infra. Under his dynamic leadership, the company has completed numerous premium developments and established a reputation for absolute transparency, engineering excellence, and customer trust. With nearly twenty years of experience in real estate, he oversees the company's strategic vision and continues to build landmarks across prime growth corridors.",
           phone: "+91 81255 47801"
         },
         md: {
