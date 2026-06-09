@@ -550,8 +550,9 @@
 
     /* Achievements */
     .achievements {
-      background: linear-gradient(135deg, var(--navy-mid), var(--navy-deep));
+      background: radial-gradient(circle at 50% 50%, var(--navy-mid) 0%, var(--navy-deep) 100%);
       padding: 6rem 1.5rem;
+      position: relative;
     }
     .achievements-grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
@@ -560,30 +561,60 @@
     .achievement-item { 
       text-align: center; 
       padding: 3.5rem 1.5rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(201, 169, 98, 0.15);
-      border-radius: 8px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, rgba(201, 169, 98, 0.03), rgba(10, 22, 40, 0.7));
+      border: 1px solid rgba(201, 169, 98, 0.20);
+      border-radius: 12px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
       transition: transform 0.4s var(--transition), border-color 0.4s var(--transition), box-shadow 0.4s var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .achievement-item:hover {
-      transform: translateY(-8px);
-      border-color: rgba(201, 169, 98, 0.5);
-      box-shadow: 0 20px 40px rgba(201, 169, 98, 0.2);
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(201, 169, 98, 0.6);
+      box-shadow: 0 30px 60px rgba(201, 169, 98, 0.18), inset 0 1px 0 rgba(201, 169, 98, 0.2);
+    }
+    .achievement-icon-wrap {
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.5rem;
+      height: 4.5rem;
+      background: rgba(201, 169, 98, 0.04);
+      border: 1px solid rgba(201, 169, 98, 0.25);
+      border-radius: 50%;
+      transition: transform 0.4s var(--transition), background 0.4s var(--transition), border-color 0.4s var(--transition), box-shadow 0.4s var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0 2px 8px rgba(201, 169, 98, 0.25));
+    }
+    .achievement-item:hover .achievement-icon-wrap {
+      transform: scale(1.1) rotate(5deg);
+      background: rgba(201, 169, 98, 0.08);
+      border-color: var(--gold);
+      box-shadow: 0 8px 25px rgba(201, 169, 98, 0.35);
+    }
+    .achievement-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      display: block;
     }
     .achievement-num {
       font-family: var(--font-display);
       font-size: clamp(2.75rem, 5vw, 4rem);
       font-weight: 700; color: var(--gold);
       line-height: 1.1;
-      text-shadow: 0 4px 20px rgba(201, 169, 98, 0.25);
-      margin-bottom: 0.75rem;
+      text-shadow: 0 4px 20px rgba(201, 169, 98, 0.35);
+      margin-bottom: 0.5rem;
     }
     .achievement-num span { font-size: 0.5em; color: var(--gold-light); }
     .achievement-item p {
-      margin-top: 0.75rem; font-size: 0.8125rem;
-      letter-spacing: 0.12em; text-transform: uppercase; color: var(--white);
+      margin-top: 0.5rem; font-size: 0.8125rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light);
       font-weight: 600;
     }
 
@@ -890,22 +921,54 @@
     <div class="container">
       <p class="section-label reveal" style="justify-content:center;">Achievements</p>
       <h2 class="section-title reveal" style="text-align:center;">Our Commitment</h2>
-      <p class="section-desc reveal" style="margin:0 auto 2rem;text-align:center;">Add your real numbers and awards here when available.</p>
+      <p class="section-desc reveal" style="margin:0 auto 2.5rem;text-align:center;max-width:38rem;">A testament to our dedication, engineering excellence, and the trust placed in us by thousands of happy families.</p>
 
       <div class="achievements-grid">
         <div class="achievement-item reveal">
+          <div class="achievement-icon-wrap">
+            <svg class="achievement-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.47 14L19 22l-7-3-7 3 3.53-8"/>
+            </svg>
+          </div>
           <div class="achievement-num">20+</div>
           <p>Years of Experience</p>
         </div>
         <div class="achievement-item reveal reveal-delay-1">
+          <div class="achievement-icon-wrap">
+            <svg class="achievement-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+              <line x1="9" y1="22" x2="9" y2="16"/>
+              <line x1="15" y1="22" x2="15" y2="16"/>
+              <line x1="9" y1="16" x2="15" y2="16"/>
+              <path d="M8 6h2v2H8zm6 0h2v2h-2zm-6 4h2v2H8zm6 0h2v2h-2z"/>
+            </svg>
+          </div>
           <div class="achievement-num">50+</div>
           <p>Projects Completed</p>
         </div>
         <div class="achievement-item reveal reveal-delay-2">
+          <div class="achievement-icon-wrap">
+            <svg class="achievement-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
           <div class="achievement-num">1L+</div>
           <p>Happy Customers</p>
         </div>
         <div class="achievement-item reveal reveal-delay-3">
+          <div class="achievement-icon-wrap">
+            <svg class="achievement-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+              <path d="M4 22h16"/>
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34"/>
+              <path d="M12 2a6 6 0 0 1 6 6v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8a6 6 0 0 1 6-6z"/>
+            </svg>
+          </div>
           <div class="achievement-num">Many More</div>
           <p>Awards &amp; Recognitions</p>
         </div>
