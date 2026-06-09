@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thank you for contacting ARK Infra. View our price list flyer.">
+  <title>Thank You | ARK Infra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chatbot.css">
+  <style>
+    :root {
+      --navy-deep: #050d1a;
+      --navy: #0a1628;
+      --navy-mid: #122a47;
+      --navy-light: #1e3d66;
+      --gold: #c9a962;
+      --gold-light: #e4d4a8;
+      --gold-dark: #9a7b3a;
+      --white: #ffffff;
+      --off-white: #f4f6f9;
+      --text-muted: #94a3b8;
+      --text-body: #cbd5e1;
+      --font-display: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Inter", system-ui, sans-serif;
+      --header-h: 5rem;
+      --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-gold: 0 4px 24px rgba(201, 169, 98, 0.25);
+      --max-w: 75rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--navy-deep);
+      color: var(--text-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; transition: color var(--transition), opacity var(--transition); }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* Header */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--header-h);
+      background: rgba(5, 13, 26, 0.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(201, 169, 98, 0.15);
+    }
+    .header-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-display); font-size: 1.75rem; font-weight: 700;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    .logo span { color: var(--gold); }
+    .logo-badge-img {
+      width: 2.5rem; height: 2.5rem;
+      border: 2px solid var(--gold);
+      background: var(--white);
+      object-fit: contain;
+      padding: 2px;
+      border-radius: 2px;
+    }
+    .nav-desktop { display: flex; align-items: center; gap: 2rem; }
+    .nav-desktop a {
+      font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-body);
+    }
+    .nav-desktop a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 0.65rem 1.5rem !important;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy-deep) !important; border-radius: 2px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.9; color: var(--navy-deep) !important; }
+    
+    .menu-toggle {
+      display: none; flex-direction: column; gap: 5px; padding: 0.5rem;
+    }
+    .menu-toggle span {
+      width: 26px; height: 2px; background: var(--gold);
+      transition: var(--transition);
+    }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .nav-mobile {
+      position: fixed; inset: 0; top: var(--header-h);
+      background: rgba(5, 13, 26, 0.98);
+      padding: 2rem 1.5rem;
+      transform: translateX(100%);
+      transition: transform var(--transition);
+      z-index: 999;
+    }
+    .nav-mobile.open { transform: translateX(0); }
+    .nav-mobile a {
+      display: block; padding: 1rem 0;
+      font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--white); border-bottom: 1px solid rgba(201, 169, 98, 0.15);
+    }
+    .nav-mobile a:hover { color: var(--gold); }
+
+    /* Main Container & Top Padding */
+    .thankyou-section {
+      padding: calc(var(--header-h) + 3rem) 1.5rem 4rem;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: scaleUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes scaleUp {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .thankyou-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .thankyou-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 38rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Flyer Section */
+    .flyer-heading {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .flyer-container {
+      width: 100%;
+      max-width: 700px;
+      border: 1px solid rgba(201, 169, 98, 0.3);
+      border-radius: 8px;
+      background: rgba(10, 22, 40, 0.6);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      margin-bottom: 3rem;
+    }
+
+    .flyer-container img {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 1rem 2rem; font-size: 0.8125rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase; border-radius: 2px;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--navy-deep);
+      box-shadow: var(--shadow-gold);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201, 169, 98, 0.4); }
+    .btn-outline {
+      border: 1px solid var(--gold); color: var(--gold);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(201, 169, 98, 0.1); transform: translateY(-2px); }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #030811;
+      padding: 5rem 1.5rem 2rem;
+      border-top: 1px solid rgba(201, 169, 98, 0.1);
+      margin-top: auto;
+    }
+    .footer-grid {
+      max-width: var(--max-w); margin: 0 auto 3rem;
+      display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem;
+    }
+    .footer-brand p { margin: 1.25rem 0; font-size: 0.9375rem; color: var(--text-muted); line-height: 1.6; }
+    .footer-col h4 {
+      color: var(--white); font-size: 0.875rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem;
+    }
+    .footer-col ul li { margin-bottom: 0.75rem; font-size: 0.875rem; color: var(--text-muted); }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: var(--max-w); margin: 0 auto; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8125rem; color: var(--text-muted);
+    }
+    .footer-legal a { margin-left: 1.5rem; }
+    .footer-legal a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .nav-desktop { display: none; }
+      .menu-toggle { display: flex; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="ARK Infra Home">
+        <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
+        ARK <span>Infra</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="why.html">Why Us</a>
+        <a href="achievements.html">Achievements</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="why.html">Why Us</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="thankyou-section">
+    <div class="success-icon">✓</div>
+    <h1 class="thankyou-title">Thank You!</h1>
+    <p class="thankyou-desc">
+      Your inquiry has been successfully sent. CEO Konathala Hanumantharao (Arun) and our support team will reach out to you within 24 hours.
+    </p>
+
+    <h2 class="flyer-heading">ARK Infra Price List Flyer</h2>
+    <div class="flyer-container">
+      <img src="images/price-list.jpg" alt="ARK Infra Price List Flyer">
+      <div class="btn-group">
+        <a href="images/price-list.jpg" download="ARK-Infra-Price-List.jpg" class="btn btn-primary">
+          Download Flyer
+        </a>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="index.html" class="btn btn-outline">Back to Home</a>
+      <a href="projects.html" class="btn btn-outline">Explore Projects</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <img class="logo-badge-img" src="images/logo.jpg" alt="ARK Infra Logo" aria-hidden="true">
+          ARK <span>Infra</span>
+        </a>
+        <p>Premium real estate development &mdash; building dreams and creating landmarks with ARK Infra.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="projects.html">Luxury Apartments</a></li>
+          <li><a href="projects.html">Residential Layouts</a></li>
+          <li><a href="projects.html">Commercial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+918125547801">+91 81255 47801</a></li>
+          <li><a href="contact.html">Enquire via form</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 ARK Infra. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const navMobile = document.getElementById('navMobile');
+
+      menuToggle.addEventListener('click', function () {
+        const open = navMobile.classList.toggle('open');
+        menuToggle.classList.toggle('active', open);
+        menuToggle.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+
+      navMobile.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navMobile.classList.remove('open');
+          menuToggle.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
